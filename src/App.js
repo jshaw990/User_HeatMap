@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
-import HeatMap from './components/HeatMap';
-import Report from './report'
+import HeatMap from './components/HeatMap/HeatMap';
+import Report from './components/Report/Report'
 
 import { renderButton, checkSignedIn } from './utils';
 
@@ -36,7 +36,7 @@ function App() {
     <div className="App">
       {!isSignedIn ? (
         <div>
-          <h1>Google Analytics</h1>
+          <h1>Google Analytics/Maps Heatmap</h1>
           <div id='signin-button'></div>
         </div>
       ) : (

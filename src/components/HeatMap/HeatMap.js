@@ -4,7 +4,7 @@ import GoogleMapReact from 'google-map-react'
 
 import './HeatMap.css'
 
-import DevData from '../points'
+// import DevData from '../devdata'
 
 class HeatMap extends Component {
   static defaultProps = {
@@ -12,15 +12,15 @@ class HeatMap extends Component {
       lat: 37.78,
       lng: -122.44
     },
-    zoom: 4
+    zoom: 2
   }
 
   constructor(props) {
       super(props)
       const Data = this.props.data
       const PointArr = []
-      const FormatData = Data.forEach(element => PointArr.push(element))
-        // const DevData = DevData.forEach(element => PointArr.push(element))
+      const FormatData = Data.forEach(el => PointArr.push(el))
+      // const DevData = DevData.forEach(element => PointArr.push(element))
   	this.state = {
       heatmapVisible: true,
   		heatmapPoints: PointArr
@@ -74,7 +74,6 @@ class HeatMap extends Component {
           defaultZoom={this.props.zoom}
           heatmapLibrary={true}
           heatmap={heatMapData}
-          // onClick={this.onMapClick.bind(this)}
         >
         </GoogleMapReact>
         <button className="toggleButton" onClick={this.toggleHeatMap.bind(this)}>Toggle heatmap</button>

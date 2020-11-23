@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import HeatMap from './components/HeatMap';
+import HeatMap from "../HeatMap/HeatMap"
 
 const Report = () => {
   const [data, setData] = useState([]);
@@ -59,36 +59,20 @@ const Report = () => {
     };
 
     const displayResults = (response) => {//(2)
-      const queryResult = response.result.reports[0].data.rows;
-      // const formattedJSON = JSON.stringify(queryResult)
-      // console.log("RESULTS => " + formattedJSON)
-      // console.log(queryResult)
-
+      const queryResult = response.result.reports[0].data.rows
       let dataIn = queryResult 
       let dataArr = []
         for (let i = 0; i < dataIn.length; i++) {
-          // console.log("DATA => " + data[i].dimensions)
-          // let dataFormat = data[i].dimensions 
           let dataJson = {lat: dataIn[i].dimensions[0], lng: dataIn[i].dimensions[1] }
-          // console.log(dataJson)
-          // console.log(data[i].dimensions[0])
-          
           dataArr.push(dataJson)
-          //console.log(dataArr)
-          
-          
-          // console.log("ARRAY => " + dataArr)
         };
-        //console.log(dataArr)
         setData(dataArr);
         setReady(true)
-        // console.log(setData)
-        
       };
 
     queryReport();
   }, []);
-  if(ready == true ) {
+  if(ready === true ) {
   return (
     <HeatMap data={data}/>
   )
