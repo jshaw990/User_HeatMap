@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
+
 import './App.css';
 
-import HeatMap from './components/HeatMap/HeatMap';
 import Report from './components/Report/Report'
-
 import { renderButton, checkSignedIn } from './utils';
 
 function App() {
