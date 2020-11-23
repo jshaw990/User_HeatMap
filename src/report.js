@@ -4,6 +4,7 @@ import HeatMap from './components/HeatMap';
 
 const Report = () => {
   const [data, setData] = useState([]);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     const queryReport = () => {//(1)
@@ -80,16 +81,18 @@ const Report = () => {
         };
         //console.log(dataArr)
         setData(dataArr);
+        setReady(true)
         // console.log(setData)
         
       };
 
     queryReport();
   }, []);
-
+  if(ready == true ) {
   return (
     <HeatMap data={data}/>
   )
+  } else return(<div>Loading...</div>)
 };
 
 

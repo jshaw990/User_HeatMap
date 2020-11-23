@@ -17,9 +17,9 @@ class HeatMap extends Component {
 
   constructor(props) {
       super(props)
-        const PointArr = []
-        const Data = this.props.data
-        const FormatData = Data.forEach(element => PointArr.push(element))
+      const Data = this.props.data
+      const PointArr = []
+      const FormatData = Data.forEach(element => PointArr.push(element))
         // const DevData = DevData.forEach(element => PointArr.push(element))
   	this.state = {
       heatmapVisible: true,
