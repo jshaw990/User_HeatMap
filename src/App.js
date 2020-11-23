@@ -1,23 +1,49 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
+import HeatMap from './components/HeatMap';
+import Report from './report'
+
+import { renderButton, checkSignedIn } from './utils';
+
 function App() {
+  const [isSignedIn, setIsSignedIn] = useState(false);
+
+  const updateSignIn = (signedIn) => {
+    setIsSignedIn(signedIn);
+    if (!signedIn) {
+      renderButton();
+    }
+  };
+
+  const init = () => {
+    checkSignedIn()
+      .then((signedIn) => {
+        updateSignIn(signedIn);
+        window.gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignIn);
+      })
+      .catch((error) => {
+        console.error(error)
+        return
+      });
+  };
+
+  useEffect(() => {
+    window.gapi.load("auth2", init)
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {!isSignedIn ? (
+        <div>
+          <h1>Google Analytics</h1>
+          <div id='signin-button'></div>
+        </div>
+      ) : (
+        <div>
+          <Report />
+        </div>
+      )}
     </div>
   );
 }
