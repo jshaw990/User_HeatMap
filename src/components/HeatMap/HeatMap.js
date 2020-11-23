@@ -54,7 +54,7 @@ class HeatMap extends Component {
 
   render() {
 
-  	const apiKey = process.env.MAPS_API_KEY
+  	const apiKey = process.env.REACT_APP_MAPS_KEY
   	const heatMapData = {
   		positions: this.state.heatmapPoints,
 		options: {

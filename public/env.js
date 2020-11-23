@@ -6,7 +6,7 @@ window.env = {
   "npm_config_only": "",
   "npm_config_commit_hooks": "true",
   "npm_config_browser": "",
-  "npm_package_gitHead": "c57a38745efcfcbbe9241cc0040bc03b2e5239b6",
+  "npm_package_gitHead": "71b88db4259c7b0f399f53162f14389a504b11df",
   "npm_config_also": "",
   "npm_config_sign_git_commit": "",
   "npm_config_rollback": "true",
@@ -182,6 +182,6 @@ window.env = {
   "npm_config_prefix": "/usr/local",
   "npm_package_dependencies_google_map_react": "^2.1.9",
   "COLORTERM": "truecolor",
-  "MAPS_API_KEY": "AIzaSyCRay2ycVT7lfdak87giGwktFrfkDzfPhc",
+  "REACT_APP_MAPS_KEY": "AIzaSyCRay2ycVT7lfdak87giGwktFrfkDzfPhc",
   "REACT_APP_CLIENT_ID": "347165042630-5rm4ulc1kkfipl4g1gjjvt2jaoh0ed8o.apps.googleusercontent.com"
 };
