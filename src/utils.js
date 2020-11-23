@@ -1,6 +1,6 @@
 const initAuth = () => {
     return window.gapi.auth2.init({
-        client_id: process.env.REACT_APP_CLIENT_ID,
+        client_id: '347165042630-5rm4ulc1kkfipl4g1gjjvt2jaoh0ed8o.apps.googleusercontent.com',
         scope: 'https://www.googleapis.com/auth/analytics.readonly'
     });
 };
